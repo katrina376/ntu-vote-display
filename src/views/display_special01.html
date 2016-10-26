@@ -1,0 +1,52 @@
+<?!= include('page_header'); ?>
+  <section class="page-section">
+    <input type="hidden" value="<?!= getCategory() ?>">
+    <div id="college-select" class="selfset-2-3">
+      <button class="pure-button pure-button-primary" data-category="0">全部顯示</button>
+      <button class="pure-button pure-button-primary" data-category="1">文學院</button>
+      <button class="pure-button pure-button-primary" data-category="2">理學院</button>
+      <button class="pure-button pure-button-primary" data-category="3">社會科學院</button>
+      <button class="pure-button pure-button-primary" data-category="4">醫學院</button>
+      <button class="pure-button pure-button-primary" data-category="5">工學院</button><br/>
+      <button class="pure-button pure-button-primary" data-category="6">生物資源暨農學院</button>
+      <button class="pure-button pure-button-primary" data-category="7">管理學院</button>
+      <button class="pure-button pure-button-primary" data-category="8">公共衛生學院</button>
+      <button class="pure-button pure-button-primary" data-category="9">電機資訊學院</button>
+      <button class="pure-button pure-button-primary" data-category="A">法律學院</button>
+    </div>
+    <div id="sharelink" class="selfset-2-3">
+      快速連結網址：<span id="url">https://script.google.com/macros/s/AKfycby4WhOSYKFXHELVJ3BQd9FQCBgxtEAfk5uW2pSQcKwUhf3ThcE/exec?id=2&col=</span>
+    </div>
+    <ul class="candidates selfset-2-3">
+    <?
+      var candidates = getCandidates();
+      for (var i = 0; i != candidates.length; ++i)
+      {
+    ?>
+      <li class="candidate pure-g" data-category="<?!= candidates[i].Category ?>">
+        <header class="pure-u-1-4">
+          <div><?!= candidates[i].College ?><br/><br/></div>
+          <div class="candidate-number"><?!= candidates[i].Number ?></div>
+          <h2 class="candidate-name"><?!= candidates[i].Name?></h2>
+          <div class="candidate-department"><?!= candidates[i].DepartmentGrade ?></div>
+          <!--<figure class="candidate-photo"><img src="https://drive.google.com/uc?export=view&id=<?!= candidates[i].Photo ?>"/></figure>-->
+          <br/>
+          <a href="<?!= candidates[i].Announce ?>" target="_blank">候選人政見與經歷</a>
+        </header>
+        <section class="pure-u-3-4">
+          <section class="candidate-experience">
+            <h3>【經歷】</h3>
+            <?!= candidates[i].Experience.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+          <section class="candidate-politics">
+            <h3>【政見】</h3>
+            <?!= candidates[i].Politics.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+        </section>
+      </li>
+    <?
+      }
+    ?>
+    </ul>
+  </section>
+<?!= include('page_footer'); ?>

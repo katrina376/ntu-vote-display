@@ -1,0 +1,193 @@
+<style>
+/* NTUSA EREC site for 104-2 Election */
+*, .pure-g [class *= "pure-u"]
+{
+	position: relative;
+	font-family: Georgia, "Microsoft JhengHei", sans-serif;
+	-webkit-box-sizing: border-box !important;
+	   -moz-box-sizing: border-box !important;
+			box-sizing: border-box !important;
+}
+
+body
+{
+	width: 100%;
+	color: #212121;
+	font-size: 16px;
+}
+
+a
+{
+	color: <?!= settingBGColor() ?>;
+}
+
+a:hover
+{
+	color: #CCC;
+    text-decoration: none;
+}
+
+.color-reverse *
+{
+	color: #fff;
+}
+
+.color-reverse a
+{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.color-reverse a:hover
+{
+	color: #CCC;
+	text-decoration: none;
+}
+
+.selfset-2-3
+{
+	position: relative;
+	width: 66.6667%;
+	margin: 0 auto;
+}
+
+.page-section
+{
+    padding: 2em 0;
+}
+
+#college-select
+{
+    margin: 2em auto;
+    text-align: center;
+}
+
+.pure-button-primary
+{
+    margin: 6px 8px;
+    background: <?!= settingBGColor() ?> !important;
+    border-radius: 5px;
+}
+
+.pure-button-primary:hover, .pure-button-primary.hover
+{
+	background: #fff !important;
+    color: <?!= settingBGColor() ?> !important;
+    border: <?!= settingBGColor() ?> 2px solid !important;
+    margin: 4px 6px !important;
+}
+
+#page-header
+{
+	margin: 0;
+	background: <?!= settingBGColor() ?>;
+	text-align: center;
+	width: 100%;
+	padding: 1em 0;
+	color: #FFF;
+	overflow: hidden;
+}
+
+#page-header h1
+{
+	line-height: 2;
+}
+
+#page-header h1 #form-title
+{
+	font-size: 150%;
+}
+
+#page-header img
+{
+    max-width: 640px;
+}
+
+#page-footer
+{
+	background: <?!= settingBGColor() ?>;
+	text-align: left;
+}
+
+.category
+{
+  display: none;
+}
+
+.candidate
+{
+  padding: 2em 0;
+  border-bottom: 1px #CCC solid;
+}
+
+.candidate header
+{
+  text-align: center;
+  border-right: 1px #CCC solid;
+}
+
+.candidate-prime
+{
+  border-right: 1px #CCC solid;
+}
+
+.candidate-prime header, .candidate-vice header
+{
+  border-right: none;
+}
+
+.candidate-number
+{
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.6em;
+  line-height: 1;
+  padding: 0.6em 0;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  background: <?!= settingBGColor() ?>;
+  color: #FFF;
+}
+
+.candidate-experience, .candidate-politics
+{
+  padding: 0 2em 1em 2em;
+}
+
+#sharelink
+{
+  font-size: 0.8em;
+  text-align: center;
+}
+
+@media screen and (max-width: 960px)
+{
+	.selfset-2-3
+	{
+		width: 576px;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 640px)
+{
+	.selfset-2-3
+	{
+		width: 96%;
+		margin: 0 auto;
+	}
+    .comment
+    {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 468px)
+{
+    .pure-controls, .pure-input-1, .pure-control-group label
+    {
+        width: 100% !important;
+    }
+}
+</style>

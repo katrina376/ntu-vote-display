@@ -1,0 +1,34 @@
+<?!= include('page_header'); ?>
+  <section class="page-section">
+    <ul class="candidates selfset-2-3">
+    <?
+      var candidates = getCandidates();
+      for (var i = 0; i != candidates.length; ++i)
+      {
+    ?>
+      <li class="candidate pure-g">
+        <header class="pure-u-1-4">
+          <div class="candidate-number"><?!= candidates[i].Number ?></div>
+          <h2 class="candidate-name"><?!= candidates[i].Name?></h2>
+          <div class="candidate-department"><?!= candidates[i].DepartmentGrade ?></div>
+          <!--<figure class="candidate-photo"><img src="https://drive.google.com/uc?export=view&id=<?!= candidates[i].Photo ?>"/></figure>-->
+          <br/>
+          <a href="<?!= candidates[i].Announce ?>" target="_blank">候選人政見與經歷</a>
+        </header>
+        <section class="pure-u-3-4">
+          <section class="candidate-experience">
+            <h3>【經歷】</h3>
+            <?!= candidates[i].Experience.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+          <section class="candidate-politics">
+            <h3>【政見】</h3>
+            <?!= candidates[i].Politics.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+        </section>
+      </li>
+    <?
+      }
+    ?>
+    </ul>
+  </section>
+<?!= include('page_footer'); ?>

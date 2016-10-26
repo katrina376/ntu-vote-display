@@ -1,0 +1,74 @@
+<script>
+
+function Button_Object(node,listin)
+{
+  this.btn = node;
+  this.btn.parentObj = this;
+  this.cat = node.getAttribute("data-category");
+  this.isChosen = false;
+  this.list = [];
+
+  if (this.cat == 0)
+  {
+    this.list = listin;
+  }
+  else
+  {
+    for (var i = 0; i != listin.length; ++i)
+    {
+      if (listin[i].getAttribute("data-category") == this.cat)
+        this.list.push(listin[i]);
+    }
+  }
+
+  // methods
+  this.display = function()
+  {
+    if (!this.isChosen)
+    {
+      this.btn.className += " hover";
+      this.isChosen = true;
+      for (var i = 0; i != this.list.length; ++i)
+        this.list[i].style.display = "block";
+      document.getElementById("url").innerHTML = "https://script.google.com/macros/s/AKfycby4WhOSYKFXHELVJ3BQd9FQCBgxtEAfk5uW2pSQcKwUhf3ThcE/exec?id=2&col=" + this.cat;
+    }
+  }
+
+  this.reset = function()
+  {
+    this.btn.className = "pure-button pure-button-primary";
+    this.isChosen = false;
+    for (var i = 0; i != this.list.length; ++i)
+      this.list[i].style.display = "none";
+  }
+}
+
+
+if (document.getElementById("college-select"))
+{
+  var selector = document.getElementById("college-select");
+
+  var button = selector.getElementsByTagName("button");
+  var candidate = document.getElementsByTagName("li");
+  var btnObj = [];
+
+  for (var i = 0; i != button.length; ++i)
+    btnObj.push(new Button_Object(button[i], candidate));
+
+  var v = document.getElementsByTagName("input")[0].value;
+  var c = (v == 'A') ? 10 : Math.round(v);
+  var c = ((c > 10) || (c < 0)) ? 0 : c;
+
+  btnObj[c].display(); // default
+
+  for (var i = 0; i != btnObj.length; ++i)
+  {
+    btnObj[i].btn.addEventListener("click", function(e){
+      for (var j = 0; j != btnObj.length; ++j)
+        btnObj[j].reset();
+      this.parentObj.display();
+    });
+  }
+}
+
+</script>

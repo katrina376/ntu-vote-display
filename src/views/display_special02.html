@@ -1,0 +1,48 @@
+<?!= include('page_header'); ?>
+  <section class="page-section">
+    <ul class="candidates selfset-2-3">
+    <?
+      var candidates = getCandidates();
+      for (var i = 0; i != candidates.length; ++i)
+      {
+    ?>
+      <li class="candidate pure-g">
+        <div class="pure-u-1-6">
+          <div class="candidate-number"><?!= candidates[i].Number ?></div>
+          <br/>
+          <a href="<?!= candidates[i].Announce ?>" target="_blank">候選人政見與經歷</a>
+        </div>
+        <section class="pure-u-5-12 candidate-prime">
+          <header>
+            <h2 class="candidate-name"><?!= candidates[i].P_Name?></h2>
+            <div class="candidate-department"><?!= candidates[i].P_DepartmentGrade ?></div>
+            <!--<figure class="candidate-photo"><img src="https://drive.google.com/uc?export=view&id=<?!= candidates[i].P_Photo ?>"/></figure>-->
+          </header>
+          <section class="candidate-experience">
+            <h3>【經歷】</h3>
+            <?!= candidates[i].P_Experience.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+        </section>
+        <section class="pure-u-5-12 candidate-vice">
+          <header>
+            <h2 class="candidate-name"><?!= candidates[i].V_Name?></h2>
+            <div class="candidate-department"><?!= candidates[i].V_DepartmentGrade ?></div>
+            <!--<figure class="candidate-photo"><img src="https://drive.google.com/uc?export=view&id=<?!= candidates[i].V_Photo ?>"/></figure>-->
+          </header>
+          <section class="candidate-experience">
+            <h3>【經歷】</h3>
+            <?!= candidates[i].V_Experience.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+          </section>
+        </section>
+        <div class="pure-u-1-6"></div>
+        <section class="candidate-politics pure-u-5-6">
+          <h3>【政見】</h3>
+          <?!= candidates[i].Politics.replace(new RegExp('\r?\n','g'), '<br/>'); ?>
+        </section>
+      </li>
+    <?
+      }
+    ?>
+    </ul>
+  </section>
+<?!= include('page_footer'); ?>
