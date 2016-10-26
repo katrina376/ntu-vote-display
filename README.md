@@ -17,12 +17,6 @@ Released under [MIT License](https://github.com/katrina376/ntu-vote-display/blob
 + `TOCNAME` : 資料庫目錄標題
 + `ELECTION` : 選舉名稱  
 
-#### `scripts/code_verification.gs`
-使用排程設定，每1分鐘執行一次，將新寫入資料庫的登記資料匯出成審核文件。  
-
-#### `scripts/code_export.gs`
-使用排程設定，每5分鐘執行一次，將完成審核的登記資料匯入另一個資料庫（SPREADSHEET_EXPORT）。
-
 #### `views/display_[typename].html`
  不同的介面，後面字串對應資料庫中不同選舉的分類。會呼叫以下檔案，匯入其他標籤：
 + `views/page_header.html` : `<!DOCTYPE><head></head><body>` + header content  
